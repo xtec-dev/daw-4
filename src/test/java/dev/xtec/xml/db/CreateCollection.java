@@ -1,4 +1,4 @@
-package daw4.db;
+package dev.xtec.xml.db;
 
 import org.basex.core.*;
 import org.basex.core.cmd.*;
@@ -16,6 +16,7 @@ import org.basex.core.cmd.*;
 public final class CreateCollection {
     /**
      * Runs the example code.
+     * 
      * @param args (ignored) command-line arguments
      * @throws BaseXException if a database command fails
      */

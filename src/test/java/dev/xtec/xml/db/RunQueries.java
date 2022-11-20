@@ -1,4 +1,4 @@
-package daw4.db;
+package dev.xtec.xml.db;
 
 import java.io.*;
 
@@ -20,8 +20,9 @@ public final class RunQueries {
 
     /**
      * Runs the example code.
+     * 
      * @param args (ignored) command-line arguments
-     * @throws IOException if an error occurs while serializing the results
+     * @throws IOException    if an error occurs while serializing the results
      * @throws QueryException if an error occurs while evaluating the query
      * @throws BaseXException if a database command fails
      */
@@ -29,8 +30,7 @@ public final class RunQueries {
         System.out.println("=== RunQueries ===");
 
         // Evaluate the specified XQuery
-        String query =
-                "for $x in doc('src/test/resources/db/xml/input.xml')//li return data($x)";
+        String query = "for $x in doc('src/test/resources/db/xml/input.xml')//li return data($x)";
 
         // Process the query by using the database command
         System.out.println("\n* Use the database command:");
@@ -63,6 +63,7 @@ public final class RunQueries {
     /**
      * This method evaluates a query by using the database command.
      * The results are automatically serialized and printed.
+     * 
      * @param query query to be evaluated
      * @throws BaseXException if a database command fails
      */
@@ -73,12 +74,13 @@ public final class RunQueries {
     /**
      * This method uses the {@link QueryProcessor} to evaluate a query.
      * The resulting items are passed on to a serializer.
+     * 
      * @param query query to be evaluated
      * @throws QueryException if an error occurs while evaluating the query
      */
     static void process(final String query) throws QueryException {
         // Create a query processor
-        try(QueryProcessor proc = new QueryProcessor(query, context)) {
+        try (QueryProcessor proc = new QueryProcessor(query, context)) {
             // Execute the query
             Value result = proc.value();
 
@@ -92,17 +94,18 @@ public final class RunQueries {
      * The results are iterated one by one and converted to their Java
      * representation, using {{@link Item#toJava()}. This variant is especially
      * efficient if large result sets are expected.
+     * 
      * @param query query to be evaluated
      * @throws QueryException if an error occurs while evaluating the query
      */
     static void iterate(final String query) throws QueryException {
         // Create a query processor
-        try(QueryProcessor proc = new QueryProcessor(query, context)) {
+        try (QueryProcessor proc = new QueryProcessor(query, context)) {
             // Store the pointer to the result in an iterator:
             Iter iter = proc.iter();
 
             // Iterate through all items and serialize
-            for(Item item; (item = iter.next()) != null;) {
+            for (Item item; (item = iter.next()) != null;) {
                 System.out.println(item.toJava());
             }
         }
@@ -112,21 +115,22 @@ public final class RunQueries {
      * This method uses the {@link QueryProcessor} to evaluate a query.
      * The results are iterated one by one and passed on to an serializer.
      * This variant is especially efficient if large result sets are expected.
+     * 
      * @param query query to be evaluated
      * @throws QueryException if an error occurs while evaluating the query
-     * @throws IOException if an error occurs while serializing the results
+     * @throws IOException    if an error occurs while serializing the results
      */
     static void serialize(final String query) throws QueryException, IOException {
         // Create a query processor
-        try(QueryProcessor proc = new QueryProcessor(query, context)) {
+        try (QueryProcessor proc = new QueryProcessor(query, context)) {
 
             // Store the pointer to the result in an iterator:
             Iter iter = proc.iter();
 
             // Create a serializer instance
-            try(Serializer ser = proc.serializer(System.out)) {
+            try (Serializer ser = proc.serializer(System.out)) {
                 // Iterate through all items and serialize contents
-                for(Item item; (item = iter.next()) != null;) {
+                for (Item item; (item = iter.next()) != null;) {
                     ser.serialize(item);
                 }
             }

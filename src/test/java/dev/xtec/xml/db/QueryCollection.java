@@ -1,4 +1,4 @@
-package daw4.db;
+package dev.xtec.xml.db;
 
 import org.basex.core.*;
 import org.basex.core.cmd.*;
@@ -12,6 +12,7 @@ import org.basex.core.cmd.*;
 public final class QueryCollection {
     /**
      * Runs the example code.
+     * 
      * @param args (ignored) command-line arguments
      * @throws BaseXException if a database command fails
      */
@@ -32,8 +33,8 @@ public final class QueryCollection {
         // The XQuery base-uri() function returns a file path
         System.out.println(new XQuery(
                 "for $doc in collection('Collection')" +
-                        "return <doc path='{ base-uri($doc) }'/>"
-        ).execute(context));
+                        "return <doc path='{ base-uri($doc) }'/>")
+                .execute(context));
 
         // Evaluate a query on a single document
         System.out.println("\n* Evaluate a query on a single document:");
@@ -44,8 +45,8 @@ public final class QueryCollection {
                 "for $doc in collection()" +
                         "let $file-path := base-uri($doc)" +
                         "where ends-with($file-path, 'factbook.xml')" +
-                        "return concat($file-path, ' has ', count($doc//*), ' elements')"
-        ).execute(context));
+                        "return concat($file-path, ' has ', count($doc//*), ' elements')")
+                .execute(context));
 
         // Drop the database
         System.out.println("\n* Drop the database.");

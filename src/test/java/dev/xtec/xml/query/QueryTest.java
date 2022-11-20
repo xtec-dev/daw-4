@@ -1,4 +1,4 @@
-package daw4.query;
+package dev.xtec.xml.query;
 
 import org.basex.core.Context;
 import org.basex.query.QueryException;

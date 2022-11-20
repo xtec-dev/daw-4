@@ -1,4 +1,4 @@
-package daw4.db;
+package dev.xtec.xml.db;
 
 import org.basex.core.Context;
 import org.basex.query.QueryException;
@@ -19,10 +19,9 @@ class BindVariablesTest {
 
         Context context = new Context();
 
-        String query =
-                "declare variable $var1 as xs:string external;\n" +
-                        "declare variable $var2 external;\n" +
-                        "($var1, $var2)";
+        String query = "declare variable $var1 as xs:string external;\n" +
+                "declare variable $var2 external;\n" +
+                "($var1, $var2)";
 
         // Create a query processor
         try (QueryProcessor proc = new QueryProcessor(query, context)) {
@@ -38,7 +37,7 @@ class BindVariablesTest {
             // Execute the query
             Value result = proc.value();
 
-            assertEquals(123L,result.itemAt(1).toJava());
+            assertEquals(123L, result.itemAt(1).toJava());
 
         }
 

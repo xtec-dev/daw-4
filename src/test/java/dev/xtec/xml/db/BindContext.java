@@ -1,4 +1,4 @@
-package daw4.db;
+package dev.xtec.xml.db;
 
 import org.basex.core.*;
 import org.basex.query.*;
@@ -11,6 +11,7 @@ import org.basex.query.value.*;
 public final class BindContext {
     /**
      * Runs the example code.
+     * 
      * @param args (ignored) command-line arguments
      * @throws QueryException if an error occurs while evaluating the query
      */
@@ -28,7 +29,7 @@ public final class BindContext {
         System.out.println(query);
 
         // Create a query processor
-        try(QueryProcessor qp = new QueryProcessor(query, context)) {
+        try (QueryProcessor qp = new QueryProcessor(query, context)) {
 
             // Define the items to be bound
             String item = "Hello World!\n";

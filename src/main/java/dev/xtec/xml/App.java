@@ -1,4 +1,4 @@
-package daw4;
+package dev.xtec.xml;
 
 import java.net.URI;
 import java.util.logging.Level;
@@ -21,8 +21,6 @@ public class App {
         final ResourceConfig config = new ResourceConfig().packages("daw4.uf1");
         final Server server = JettyHttpContainerFactory.createServer(
                 URI.create("http://localhost:8080/"), config);
-
-
 
         try {
 
@@ -49,5 +47,3 @@ class ShopResource {
         return "Hello!";
     }
 }
-
-

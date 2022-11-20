@@ -1,4 +1,4 @@
-package daw4.db;
+package dev.xtec.xml.db;
 
 import org.basex.core.*;
 import org.basex.core.cmd.*;
@@ -63,4 +63,3 @@ public final class RunCommands {
         context.close();
     }
 }
-

@@ -1,4 +1,4 @@
-package daw4;
+package dev.xtec.xml;
 
 import org.basex.*;
 import org.basex.api.client.*;
@@ -6,7 +6,6 @@ import org.basex.core.*;
 import org.basex.core.cmd.*;
 
 import java.io.IOException;
-
 
 public class Database {
 
@@ -23,7 +22,7 @@ public class Database {
         // Create a client session with host name, port, user name and password
         System.out.println("\n* Create a client session.");
 
-        try(ClientSession session = new ClientSession("localhost", 1984, "admin", "admin")) {
+        try (ClientSession session = new ClientSession("localhost", 1984, "admin", "admin")) {
             // Locally cache the result of a server-side query
             System.out.println("\n* Cache server-side query results.");
 
@@ -60,5 +59,3 @@ public class Database {
         return session.execute(command);
     }
 }
-
-

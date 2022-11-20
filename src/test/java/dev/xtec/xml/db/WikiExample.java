@@ -1,4 +1,4 @@
-package daw4.db;
+package dev.xtec.xml.db;
 
 import org.basex.core.*;
 import org.basex.core.cmd.*;
@@ -13,6 +13,7 @@ import org.basex.core.cmd.*;
 public final class WikiExample {
     /**
      * Runs the example code.
+     * 
      * @param args (ignored) command-line arguments
      * @throws BaseXException if a database command fails
      */
@@ -40,8 +41,8 @@ public final class WikiExample {
                         "insert node " +
                         "  <p>I will match the following query because I contain " +
                         "the terms 'ARTICLE' and 'EDITABLE'. :-)</p> " +
-                        "into //body"
-        ).execute(context);
+                        "into //body")
+                .execute(context);
 
         // Match all paragraphs' textual contents against
         // 'edit.*' AND ('article' or 'page')
@@ -52,8 +53,8 @@ public final class WikiExample {
                         "for $x in //p/text()" +
                         "where $x contains text ('edit.*' ftand ('article' ftor 'page')) " +
                         "  using wildcards distance at most 10 words " +
-                        "return <p>{ $x }</p>"
-        ).execute(context));
+                        "return <p>{ $x }</p>")
+                .execute(context));
 
         // ----------------------------------------------------------------------
         // Drop the database
