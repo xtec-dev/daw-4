@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE book [
+    <!ELEMENT book (title, author, collaborator)>
+    <!ELEMENT title (#PCDATA)>
+    <!ELEMENT author (#PCDATA)>
+    <!ELEMENT collaborator (#PCDATA)>
+]>
+<book>
+    <title>Refactoring</title>
+    <author>Martin Fowler</author>
+    <collaborator>Kent Beck</collaborator>
+</book>
